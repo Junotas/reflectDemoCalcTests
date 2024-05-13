@@ -28,5 +28,41 @@ public class LudvigDemoApplication {
 
 		System.out.println("Result: " + result);
 	}
-}
 
+	static class Calculator {
+		public double calculate(double num1, double num2, char operation) {
+			switch (operation) {
+				case '+':
+					return add(num1, num2);
+				case '-':
+					return subtract(num1, num2);
+				case '*':
+					return multiply(num1, num2);
+				case '/':
+					return divide(num1, num2);
+				default:
+					throw new IllegalArgumentException("Invalid operation.");
+			}
+		}
+
+		public static double add(double a, double b) {
+			return a + b;
+		}
+
+		public static double subtract(double a, double b) {
+			return a - b;
+		}
+
+		public static double multiply(double a, double b) {
+			return a * b;
+		}
+
+		public static double divide(double a, double b) {
+			if (b == 0) {
+				throw new IllegalArgumentException("Cannot divide by zero");
+			}
+			return a / b;
+		}
+	}
+
+}
